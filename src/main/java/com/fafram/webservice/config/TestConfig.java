@@ -31,7 +31,7 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Category cat1 = new Category(null, "Eletronics");
+        Category cat1 = new Category(null, "Electronics");
         Category cat2 = new Category(null, "Books");
         Category cat3 = new Category(null, "Computers");
 
@@ -40,8 +40,17 @@ public class TestConfig implements CommandLineRunner {
         Product p3 = new Product(null, "PC Gamer", "Lorem ipsum dolor sit amet, consectetur.",4500.0,"");
         Product p4 = new Product(null, "Notebook","Lorem ipsum dolor sit amet, consectetur.",2500.0,"");
 
-
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4));
+
+        // add categories to products
+        p1.getCategories().add(cat2);
+        p2.getCategories().add(cat1);
+        p3.getCategories().add(cat1);
+        p3.getCategories().add(cat3);
+        p4.getCategories().add(cat1);
+        p4.getCategories().add(cat3);
+
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4));
 
         User user1 = new User(null,"Joker","joker@gmail.com","91234-5678","123456");
