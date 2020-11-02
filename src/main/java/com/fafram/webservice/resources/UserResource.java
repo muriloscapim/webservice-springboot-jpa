@@ -36,4 +36,10 @@ public class UserResource {
         user = service.insert(user);
         return ResponseEntity.ok().body(user);
     }
+
+    @DeleteMapping(value = "/{id}") // indica que o método responde a uma requisição DELETE HTTP
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
