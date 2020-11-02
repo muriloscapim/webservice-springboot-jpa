@@ -4,10 +4,7 @@ import com.fafram.webservice.entities.User;
 import com.fafram.webservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,15 @@ public class UserResource {
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
         User user = service.findById(id);
+        return ResponseEntity.ok().body(user);
+    }
+
+    @PostMapping // indica que o método responde a uma requisição POST HTTP*
+    /* A requisição envia um json, que deve ser desserializado para um obj User
+    usamos a annotation @RequestBody
+     */
+    public ResponseEntity<User> insert(@RequestBody User user) {
+        user = service.insert(user);
         return ResponseEntity.ok().body(user);
     }
 }
