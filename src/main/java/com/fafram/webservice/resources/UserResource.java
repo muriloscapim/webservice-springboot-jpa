@@ -5,7 +5,9 @@ import com.fafram.webservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -28,13 +30,15 @@ public class UserResource {
         return ResponseEntity.ok().body(user);
     }
 
-    @PostMapping // indica que o método responde a uma requisição POST HTTP*
+    @PostMapping // indica que o método responde a uma requisição POST HTTP
     /* A requisição envia um json, que deve ser desserializado para um obj User
     usamos a annotation @RequestBody
      */
     public ResponseEntity<User> insert(@RequestBody User user) {
         user = service.insert(user);
-        return ResponseEntity.ok().body(user);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
+                .buildAndExpand(user.getId()).toUri();
+        return ResponseEntity.created(uri).body(user); // Retorna status code 201
     }
 
     @DeleteMapping(value = "/{id}") // indica que o método responde a uma requisição DELETE HTTP
