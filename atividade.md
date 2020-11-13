@@ -19,3 +19,10 @@ Implementar as operações de CRUD - Create, Retrieve, Update e Delete para as e
 
 * Deploy da aplicação no Heroku
     * Colocar no README do projeto o link da aplicação no Heroku
+
+#### Basic new entity checklist
+   * Entity
+   * Repository
+   * Database seed
+   * Service
+   * Resource
