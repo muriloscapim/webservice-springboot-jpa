@@ -19,7 +19,7 @@ O padrão arquitetural REST se baseia no protocolo HTTP e permite utilizar vári
 
 ![1_i5wQ5OHuTRMa_LHzlMXIHg (1)](https://user-images.githubusercontent.com/56240254/97914533-cbcf6580-1d2e-11eb-98ae-4e06a05254af.png)
 
-![Capturar](https://user-images.githubusercontent.com/56240254/98149780-6ef9b980-1eac-11eb-86cf-31bffedff23b.PNG)
+![98149780-6ef9b980-1eac-11eb-86cf-31bffedff23b](https://user-images.githubusercontent.com/56240254/99845034-c5c0ed80-2b52-11eb-8c38-321ab1b3eda5.png)
 
 ### Spring
 
